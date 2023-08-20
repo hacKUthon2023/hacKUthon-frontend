@@ -10,9 +10,13 @@ const CommonHeader = ({ isHome = false }: CommonHeaderProps) => {
   const navigate = useNavigate();
   return (
     <CommonHeaderWrapper>
-      {isHome ? <div></div> : <IcBacBtn onClick={() => navigate(-1)} />}
+      {isHome ? (
+        <EmptyDiv></EmptyDiv>
+      ) : (
+        <IcBacBtn onClick={() => navigate(-1)} />
+      )}
       <IcMainLogo />
-      <div></div>
+      <EmptyDiv></EmptyDiv>
     </CommonHeaderWrapper>
   );
 };
@@ -27,4 +31,8 @@ const CommonHeaderWrapper = styled.header`
 
   background-color: #fff;
   border-bottom: 0.2rem solid ${({ theme }) => theme.colors.primary_base};
+`;
+
+const EmptyDiv = styled.div`
+  width: 3.2rem;
 `;

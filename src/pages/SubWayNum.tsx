@@ -53,12 +53,19 @@ const SubWayNumMsg = styled.p<{ $isError: boolean }>`
   margin-top: 0.9rem;
 
   color: ${({ $isError, theme }) =>
-    $isError ? theme.colors.sub_red : theme.colors.primary_green};
+    $isError ? theme.colors.red_darkest : theme.colors.primary_dark};
+
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4rem;
 `;
 
 const SubWayNumTitle = styled.h1`
   margin-top: 1.6rem;
   margin-bottom: 2rem;
+
+  color: black;
 
   font-size: 1.6rem;
   font-style: normal;
@@ -77,8 +84,9 @@ const SubwayNumBtn = styled.button`
 
   border-radius: 4.8rem;
 
-  background-color: ${({ theme }) => theme.colors.primary_green};
+  background-color: ${({ theme }) => theme.colors.primary_base};
   color: white;
+
   font-family: Pretendard;
   font-size: 1.6rem;
   font-style: normal;
