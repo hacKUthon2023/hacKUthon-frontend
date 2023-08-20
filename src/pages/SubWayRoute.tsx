@@ -1,8 +1,31 @@
 import { styled } from "styled-components";
 import PageLayout from "../components/common/PageLayout";
 import { IcRouteArrow } from "../assets/icon";
+import { useLocation, useNavigate } from "react-router-dom";
+import Home from "./Home";
 
 const SubWayRoute = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const start = location.state ? location.state.start : null;
+  const end = location.state ? location.state.end : null;
+
+  console.log(start, end, "???");
+
+  const handleClickNextBtn = () => {
+    if (start && end) {
+      navigate("/subway-num", {
+        state: {
+          start: start,
+          end: end,
+        },
+      });
+    }
+  };
+
+  if (!start || !end) return <Home />;
+
   return (
     <PageLayout>
       <SubWayRouteWrapper>
@@ -13,7 +36,9 @@ const SubWayRoute = () => {
           <IcRouteArrow />
           <TwoLineInfoBox>문래</TwoLineInfoBox>
         </RouteInfoBoxContainer>
-        <SubWayRouteBtn>차량번호 입력하기</SubWayRouteBtn>
+        <SubWayRouteBtn onClick={handleClickNextBtn}>
+          차량번호 입력하기
+        </SubWayRouteBtn>
       </SubWayRouteWrapper>
     </PageLayout>
   );

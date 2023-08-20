@@ -1,15 +1,53 @@
 import { styled } from "styled-components";
 import PageLayout from "../components/common/PageLayout";
+import { IcHomeMainIcon } from "../assets/icon";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const [start, setStart] = useState("");
+  const [end, setEnd] = useState("");
+
+  const navigate = useNavigate();
+
+  console.log(start, end);
+
+  const handleChangeStart = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setStart(e.target.value);
+  };
+
+  const handleChangeEnd = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEnd(e.target.value);
+  };
+
+  const handleClickStartBtn = () => {
+    if (start && end) {
+      navigate("/subway-route", {
+        state: {
+          start: start,
+          end: end,
+        },
+      });
+    }
+  };
+
   return (
     <PageLayout isHome={true}>
       <HomeWrapper>
+        <IconBox>
+          <IcHomeMainIcon />
+        </IconBox>
         <InputContainer>
-          <StationInput placeholder="출발역 입력하기" />
-          <StationInput placeholder="도착역 입력하기" />
+          <StationInput
+            placeholder="출발역 입력하기"
+            onChange={handleChangeStart}
+          />
+          <StationInput
+            placeholder="도착역 입력하기"
+            onChange={handleChangeEnd}
+          />
         </InputContainer>
-        <SearchBtn>시작하기</SearchBtn>
+        <SearchBtn onClick={handleClickStartBtn}>시작하기</SearchBtn>
       </HomeWrapper>
     </PageLayout>
   );
@@ -18,10 +56,13 @@ const Home = () => {
 export default Home;
 
 const HomeWrapper = styled.section`
-  margin-top: 10rem; //임시
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const IconBox = styled.div`
+  padding: 1.2rem 0;
 `;
 
 const InputContainer = styled.article`

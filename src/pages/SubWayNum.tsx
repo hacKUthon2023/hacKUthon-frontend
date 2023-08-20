@@ -2,11 +2,33 @@ import { styled } from "styled-components";
 import OtpInput from "react-otp-input";
 import { useState } from "react";
 import PageLayout from "../components/common/PageLayout";
+import { useLocation, useNavigate } from "react-router-dom";
+import Home from "./Home";
 
 const SubWayNum = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [code, setCode] = useState("");
 
   const [isError] = useState(false);
+
+  const start = location.state ? location.state.start : null;
+  const end = location.state ? location.state.end : null;
+
+  const handleClickFindBtn = () => {
+    if (start && end && code) {
+      navigate("/subway-status", {
+        state: {
+          start: start,
+          end: end,
+          code,
+        },
+      });
+    }
+  };
+
+  if (!start && !end) return <Home />;
 
   return (
     <PageLayout>
@@ -33,7 +55,7 @@ const SubWayNum = () => {
           }}
           renderInput={(props) => <input {...props} />}
         />
-        <SubwayNumBtn>빈자리 찾기</SubwayNumBtn>
+        <SubwayNumBtn onClick={handleClickFindBtn}>빈자리 찾기</SubwayNumBtn>
       </SubwayNumWrapper>
     </PageLayout>
   );

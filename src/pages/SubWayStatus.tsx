@@ -1,63 +1,76 @@
 import { styled } from "styled-components";
 import PageLayout from "../components/common/PageLayout";
 import { IcEmptySeat } from "../assets/icon";
+import { useLocation } from "react-router-dom";
+import Home from "./Home";
+import SubWayNum from "./SubWayNum";
 
 const SubWayStatus = () => {
-  const START = "을지로 3가";
-  const END = "문래";
+  const location = useLocation();
+  // const navigate = useNavigate();
+
+  const start = location.state ? location.state.start : null;
+  const end = location.state ? location.state.end : null;
+  const code = location.state ? location.state.code : null;
+
+  if (!start || !end) return <Home />;
+  if (!code) return <SubWayNum />;
 
   return (
     <PageLayout>
       <SubWayStatusWrapper>
         <StatusInfoContainer>
           <InfoMsg>곧 생기게 될 빈자리를 보여드리게요.</InfoMsg>
-          <InfoRoute>{`${START}>${END}`}</InfoRoute>
+          <InfoRoute>{`${start} > ${end}`}</InfoRoute>
           <InfoNumBox>
-            <InfoNumCircle>1</InfoNumCircle>
-            <InfoNumCircle>1</InfoNumCircle>
-            <InfoNumCircle>1</InfoNumCircle>
-            <InfoNumCircle>1</InfoNumCircle>
+            {Array.from({ length: 4 }, (_, index) => index + 1).map((id) => {
+              return (
+                <InfoNumCircle key={id}>
+                  {code.toString()[id - 1]}
+                </InfoNumCircle>
+              );
+            })}
           </InfoNumBox>
         </StatusInfoContainer>
 
         <CongestionContainer>
           {Array.from({ length: 10 }, (_, index) => index + 1).map((id) => {
-            return <CongestionBox>{id}</CongestionBox>;
+            return <CongestionBox key={id}>{id}</CongestionBox>;
           })}
         </CongestionContainer>
 
         <StatusContainer>
           <StatusSection>
             {Array.from({ length: 6 }, (_, index) => index + 1).map((id) => {
-              return <IcEmptySeat id={id.toString()} />;
+              return <IcEmptySeat key={id} id={id.toString()} />;
             })}
             <SectionNum>1</SectionNum>
             <SectionNum>1</SectionNum>
           </StatusSection>
           <StatusSection>
             {Array.from({ length: 14 }, (_, index) => index + 1).map((id) => {
-              return <IcEmptySeat id={id.toString()} />;
+              return <IcEmptySeat key={id} id={id.toString()} />;
             })}
             <SectionNum>2</SectionNum>
             <SectionNum>2</SectionNum>
           </StatusSection>
           <StatusSection>
             {Array.from({ length: 14 }, (_, index) => index + 1).map((id) => {
-              return <IcEmptySeat id={id.toString()} />;
+              return <IcEmptySeat key={id} id={id.toString()} />;
             })}
             <SectionNum>3</SectionNum>
             <SectionNum>3</SectionNum>
           </StatusSection>
           <StatusSection>
             {Array.from({ length: 14 }, (_, index) => index + 1).map((id) => {
-              return <IcEmptySeat id={id.toString()} />;
+              return <IcEmptySeat key={id} id={id.toString()} />;
             })}
             <SectionNum>4</SectionNum>
             <SectionNum>4</SectionNum>
           </StatusSection>
           <StatusSection>
             {Array.from({ length: 6 }, (_, index) => index + 1).map((id) => {
-              return <IcEmptySeat id={id.toString()} />;
+              return <IcEmptySeat key={id} id={id.toString()} />;
             })}
           </StatusSection>
         </StatusContainer>
