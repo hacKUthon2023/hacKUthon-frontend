@@ -39,6 +39,8 @@ const CommonHeaderWrapper = styled.header`
   align-items: center;
   padding: 0 2.4rem;
 
+  height: 9.6rem;
+
   background-color: #fff;
   border-bottom: 0.2rem solid ${({ theme }) => theme.colors.primary_base};
 `;

@@ -13,11 +13,28 @@ const Home = () => {
 
   console.log(start, end);
 
+  const handleLimitSpace = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    //띄어쓰기 제한
+    if (e.target instanceof HTMLInputElement) {
+      e.target.value = e.target.value.replace(" ", "");
+    }
+  };
+
   const handleChangeStart = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //역 못붙이게
+    if (e.target.value.charAt(e.target.value.length - 1) === "역") {
+      e.target.value = e.target.value.replace("역", "");
+    }
+
     setStart(e.target.value);
   };
 
   const handleChangeEnd = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value.charAt(e.target.value.length - 1) === "역") {
+      console.log("!!");
+      e.target.value = e.target.value.replace("역", "");
+    }
+
     setEnd(e.target.value);
   };
 
@@ -52,10 +69,12 @@ const Home = () => {
           <StationInput
             placeholder="출발역 입력하기"
             onChange={handleChangeStart}
+            onKeyUp={handleLimitSpace}
           />
           <StationInput
             placeholder="도착역 입력하기"
             onChange={handleChangeEnd}
+            onKeyUp={handleLimitSpace}
           />
         </InputContainer>
         <SearchBtn onClick={handleClickStartBtn}>시작하기</SearchBtn>
