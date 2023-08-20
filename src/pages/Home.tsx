@@ -3,25 +3,29 @@ import { IcMainLogo } from "../assets/icon";
 
 const Home = () => {
   return (
-    <>
-      <TestBg>
-        <IcMainLogo />
-        HacKuthon2023-frontend
-        <TestTitle>메인 홈 경로입니다</TestTitle>
-      </TestBg>
-      ;
-    </>
+    <HomeWrapper>
+      <IcMainLogo />
+      <InputContainer>
+        <StationInput placeholder="출발역 입력하기" />
+        <StationInput placeholder="도착역 입력하기" />
+      </InputContainer>
+      <SearchBtn>빈자리 찾기</SearchBtn>
+    </HomeWrapper>
   );
 };
 
 export default Home;
 
-const TestBg = styled.div`
-  background-color: pink;
-  width: 100%;
-  height: 100%;
+const HomeWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
 `;
 
-const TestTitle = styled.h1`
-  color: blue;
+const InputContainer = styled.article`
+  display: flex;
+  flex-direction: column;
 `;
+
+const StationInput = styled.input``;
+
+const SearchBtn = styled.button``;
