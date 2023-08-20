@@ -3,6 +3,7 @@ import PageLayout from "../components/common/PageLayout";
 import { IcHomeMainIcon } from "../assets/icon";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import client from "../lib/axios";
 
 const Home = () => {
   const [start, setStart] = useState("");
@@ -20,8 +21,18 @@ const Home = () => {
     setEnd(e.target.value);
   };
 
-  const handleClickStartBtn = () => {
+  const handleClickStartBtn = async () => {
     if (start && end) {
+      try {
+        // const response = await client.post("/onboarding", {
+        //   start_station: start,
+        //   end_station: end,
+        const response = await client.get("/");
+        console.log("!!!", response);
+      } catch (err) {
+        console.log(err);
+      }
+
       navigate("/subway-route", {
         state: {
           start: start,

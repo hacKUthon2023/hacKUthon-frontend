@@ -30,11 +30,11 @@ const SubWayRoute = () => {
     <PageLayout>
       <SubWayRouteWrapper>
         <RouteInfoBoxContainer>
-          <ThirdInfoBox>경복궁</ThirdInfoBox>
+          <ThirdInfoBox>{start}</ThirdInfoBox>
           <IcRouteArrow />
           <TransferInfoBox>을지로3가</TransferInfoBox>
           <IcRouteArrow />
-          <TwoLineInfoBox>문래</TwoLineInfoBox>
+          <TwoLineInfoBox>{end}</TwoLineInfoBox>
         </RouteInfoBoxContainer>
         <SubWayRouteBtn onClick={handleClickNextBtn}>
           차량번호 입력하기

@@ -4,6 +4,7 @@ import { useState } from "react";
 import PageLayout from "../components/common/PageLayout";
 import { useLocation, useNavigate } from "react-router-dom";
 import Home from "./Home";
+// import client from "../lib/axios";
 
 const SubWayNum = () => {
   const location = useLocation();
@@ -16,8 +17,18 @@ const SubWayNum = () => {
   const start = location.state ? location.state.start : null;
   const end = location.state ? location.state.end : null;
 
-  const handleClickFindBtn = () => {
+  const handleClickFindBtn = async () => {
     if (start && end && code) {
+      // try {
+      //   const response = await client.post("/subwayNum", {
+      //     subway_num: code,
+      //     start_station: start,
+      //   });
+      //   console.log("!!!", response);
+      // } catch (err) {
+      //   console.log(err);
+      // }
+
       navigate("/subway-status", {
         state: {
           start: start,
