@@ -26,5 +26,5 @@ const CommonHeaderWrapper = styled.header`
   padding: 0 2.4rem;
 
   background-color: #fff;
-  border-bottom: 0.2rem solid ${({ theme }) => theme.colors.primary_green};
+  border-bottom: 0.2rem solid ${({ theme }) => theme.colors.primary_base};
 `;
