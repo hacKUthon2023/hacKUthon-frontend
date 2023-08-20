@@ -4,13 +4,20 @@ import React from "react";
 
 interface PageLayoutProps {
   isHome?: boolean;
+  isRefresh?: boolean;
+  isError?: boolean;
   children: React.ReactNode;
 }
 
-const PageLayout = ({ isHome, children }: PageLayoutProps) => {
+const PageLayout = ({
+  isHome,
+  isRefresh,
+  isError,
+  children,
+}: PageLayoutProps) => {
   return (
     <PageLayoutWrapper>
-      <CommonHeader isHome={isHome} />
+      <CommonHeader isHome={isHome} isRefresh={isRefresh} isError={isError} />
       {children}
     </PageLayoutWrapper>
   );

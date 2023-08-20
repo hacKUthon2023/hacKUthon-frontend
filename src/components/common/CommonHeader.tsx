@@ -1,22 +1,32 @@
 import { styled } from "styled-components";
-import { IcBacBtn, IcMainLogo } from "../../assets/icon";
+import { IcBacBtn, IcMainLogo, IcRefresh } from "../../assets/icon";
 import { useNavigate } from "react-router-dom";
 
 interface CommonHeaderProps {
   isHome?: boolean;
+  isRefresh?: boolean;
+  isError?: boolean;
 }
 
-const CommonHeader = ({ isHome = false }: CommonHeaderProps) => {
+const CommonHeader = ({
+  isHome = false,
+  isRefresh = false,
+  isError = false,
+}: CommonHeaderProps) => {
   const navigate = useNavigate();
   return (
     <CommonHeaderWrapper>
       {isHome ? (
         <EmptyDiv></EmptyDiv>
       ) : (
-        <IcBacBtn onClick={() => navigate(-1)} />
+        <IcBacBtn onClick={() => (isError ? navigate("/") : navigate(-1))} />
       )}
       <IcMainLogo />
-      <EmptyDiv></EmptyDiv>
+      {isRefresh ? (
+        <IcRefresh onClick={() => window.location.reload()} />
+      ) : (
+        <EmptyDiv></EmptyDiv>
+      )}
     </CommonHeaderWrapper>
   );
 };

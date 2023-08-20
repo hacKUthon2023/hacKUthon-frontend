@@ -17,10 +17,10 @@ const SubWayStatus = () => {
   if (!code) return <SubWayNum />;
 
   return (
-    <PageLayout>
+    <PageLayout isRefresh={true}>
       <SubWayStatusWrapper>
         <StatusInfoContainer>
-          <InfoMsg>곧 생기게 될 빈자리를 보여드리게요.</InfoMsg>
+          <InfoMsg>곧 생기게 될 빈자리를 보여드릴게요.</InfoMsg>
           <InfoRoute>{`${start} > ${end}`}</InfoRoute>
           <InfoNumBox>
             {Array.from({ length: 4 }, (_, index) => index + 1).map((id) => {
@@ -134,6 +134,13 @@ const InfoNumCircle = styled.div`
 
   border-radius: 2.4rem;
   border: 0.1rem solid ${({ theme }) => theme.colors.sky_light};
+
+  color: #72777a;
+
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6rem;
 `;
 
 const CongestionContainer = styled.article`

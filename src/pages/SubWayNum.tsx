@@ -67,6 +67,9 @@ const SubWayNum = () => {
           renderInput={(props) => <input {...props} />}
         />
         <SubwayNumBtn onClick={handleClickFindBtn}>빈자리 찾기</SubwayNumBtn>
+        <NumInfoText>
+          • 역 전광판이나 열차 안쪽 문에서 네 자리 숫자를 찾아보세요.
+        </NumInfoText>
       </SubwayNumWrapper>
     </PageLayout>
   );
@@ -124,5 +127,16 @@ const SubwayNumBtn = styled.button`
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.6rem; /* 100% */
+  line-height: 1.6rem;
+`;
+
+const NumInfoText = styled.p`
+  margin-top: 1.4rem;
+
+  color: ${({ theme }) => theme.colors.primary_dark};
+
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4rem;
 `;

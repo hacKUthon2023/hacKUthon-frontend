@@ -83,7 +83,7 @@ const ThirdInfoBox = styled(RouteInfoBox)`
 `;
 
 const TransferInfoBox = styled(RouteInfoBox)`
-  background-color: #202325;
+  background-color: ${({ theme }) => theme.colors.sky_dark};
 `;
 
 const SubWayRouteBtn = styled.button`

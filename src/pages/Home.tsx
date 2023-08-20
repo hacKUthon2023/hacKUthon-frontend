@@ -24,10 +24,10 @@ const Home = () => {
   const handleClickStartBtn = async () => {
     if (start && end) {
       try {
-        // const response = await client.post("/onboarding", {
-        //   start_station: start,
-        //   end_station: end,
-        const response = await client.get("/");
+        const response = await client.post("/onboarding", {
+          start_station: start,
+          end_station: end,
+        });
         console.log("!!!", response);
       } catch (err) {
         console.log(err);
