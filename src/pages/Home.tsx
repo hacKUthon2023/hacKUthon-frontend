@@ -1,9 +1,11 @@
 import { styled } from "styled-components";
+import { IcMainLogo } from "../assets/icon";
 
 const Home = () => {
   return (
     <>
       <TestBg>
+        <IcMainLogo />
         HacKuthon2023-frontend
         <TestTitle>메인 홈 경로입니다</TestTitle>
       </TestBg>
