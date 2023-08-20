@@ -75,18 +75,6 @@ const InputContainer = styled.div`
   }
 `;
 
-// const SubwayNumInput = styled.input`
-//   /* number type input 화살표 없애기 */
-//   &::-webkit-inner-spin-button {
-//     -webkit-appearance: none;
-//     margin: 0;
-//   }
-//   &::-webkit-outer-spin-button {
-//     -webkit-appearance: none;
-//     margin: 0;
-//   }
-// `;
-
 const SubwayNumDetail = styled.p``;
 
 const SubwayNumBtn = styled.button``;
