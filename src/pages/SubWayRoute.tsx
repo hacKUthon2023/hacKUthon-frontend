@@ -1,12 +1,15 @@
 import { styled } from "styled-components";
+import PageLayout from "../components/common/PageLayout";
 
 const SubWayRoute = () => {
   return (
-    <SubWayRouteWrapper>
-      <RouteInfoBox>출발역</RouteInfoBox>
-      <RouteInfoBox>환승역</RouteInfoBox>
-      <RouteInfoBox>도착역</RouteInfoBox>
-    </SubWayRouteWrapper>
+    <PageLayout>
+      <SubWayRouteWrapper>
+        <RouteInfoBox>출발역</RouteInfoBox>
+        <RouteInfoBox>환승역</RouteInfoBox>
+        <RouteInfoBox>도착역</RouteInfoBox>
+      </SubWayRouteWrapper>
+    </PageLayout>
   );
 };
 
