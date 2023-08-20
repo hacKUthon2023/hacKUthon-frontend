@@ -1,7 +1,11 @@
 import { styled } from "styled-components";
 import { IcBacBtn } from "../assets/icon";
+import OtpInput from "react-otp-input";
+import { useState } from "react";
 
 const SubWayNum = () => {
+  const [code, setCode] = useState("");
+
   return (
     <SubwayNumWrapper>
       <SubWayNumHeader>
@@ -9,13 +13,34 @@ const SubWayNum = () => {
       </SubWayNumHeader>
       <SubWayNumContainer>
         <SubWayNumTitle>열차번호</SubWayNumTitle>
-        <SubwayNumInput
+        {/* <SubwayNumInput
           placeholder="열차 번호 입력하기"
           type="number"
           onKeyDown={(e) =>
             ["e", "E", "+", "-"].includes(e.key) && e.preventDefault()
           }
-        />
+        /> */}
+        <InputContainer>
+          <OtpInput
+            value={code}
+            onChange={setCode}
+            numInputs={4}
+            inputType={"tel"}
+            inputStyle={{
+              margin: "0 0.8rem 0 0.8rem",
+              border: "1px solid #E3E5E5",
+              borderRadius: "2.4rem",
+              width: "4.8rem",
+              height: "4.8rem",
+              fontSize: "1.6rem",
+              color: "#72777A",
+              fontWeight: "400",
+              caretColor: "#72777A",
+            }}
+            renderInput={(props) => <input {...props} />}
+          />
+        </InputContainer>
+
         <SubwayNumDetail>쏼라쏼라</SubwayNumDetail>
         <SubwayNumBtn>내 열차 찾기</SubwayNumBtn>
       </SubWayNumContainer>
@@ -42,17 +67,25 @@ const SubWayNumContainer = styled.article`
 
 const SubWayNumTitle = styled.h1``;
 
-const SubwayNumInput = styled.input`
-  /* number type input 화살표 없애기 */
-  &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  &::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+const InputContainer = styled.div`
+  &.SubwayNumInput {
+    height: 10rem;
+    width: 1.6rem;
+    border: 5rem;
   }
 `;
+
+// const SubwayNumInput = styled.input`
+//   /* number type input 화살표 없애기 */
+//   &::-webkit-inner-spin-button {
+//     -webkit-appearance: none;
+//     margin: 0;
+//   }
+//   &::-webkit-outer-spin-button {
+//     -webkit-appearance: none;
+//     margin: 0;
+//   }
+// `;
 
 const SubwayNumDetail = styled.p``;
 

@@ -1437,6 +1437,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-otp-input@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-otp-input/-/react-otp-input-2.0.1.tgz#b35d723dae497a79117b2cde5db59c613a5ecc2b"
+  integrity sha512-fhkO7N/rds9cJAhY2gpeE7kLK3hCvRD+t5KmIKk4zAGoGd1RCbSAir/pXTDwWdh8Pt87h2aarDzuqmZymxXZ4g==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^18.2.15":
   version "18.2.20"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.2.20.tgz#1605557a83df5c8a2cc4eeb743b3dfc0eb6aaeb2"
@@ -2533,6 +2540,11 @@ react-is@^16.7.0:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-otp-input@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-otp-input/-/react-otp-input-3.0.4.tgz#4867cc7e7e42a76d4757423aca03644cb96bba98"
+  integrity sha512-24GWRCguMmCatD3u9+mtxOcvoHZBJEtzzKQ/2cIOpr1yRn/umjxXw5d6mwRV8JnGhQqtIigD+k3Vt1ieuDBypg==
 
 react-refresh@^0.14.0:
   version "0.14.0"
