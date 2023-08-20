@@ -18,7 +18,7 @@ const Home = () => {
 export default Home;
 
 const HomeWrapper = styled.section`
-  margin-top: 10rem;
+  margin-top: 10rem; //임시
   display: flex;
   flex-direction: column;
 `;
@@ -26,10 +26,38 @@ const HomeWrapper = styled.section`
 const InputContainer = styled.article`
   display: flex;
   flex-direction: column;
+  gap: 1.2rem;
 `;
 
-const StationInput = styled.input``;
+const StationInput = styled.input`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32.7rem;
+  height: 4.8rem;
+  padding: 1.6rem;
+
+  color: ${({ theme }) => theme.colors.primary_gray};
+
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6rem;
+
+  border-radius: 2.4rem;
+`;
 
 const SearchBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32.7rem;
+  height: 4.8rem;
+  padding: 1.6rem 0;
+
+  border-radius: 4.8rem;
+
   background-color: ${({ theme }) => theme.colors.primary_green};
 `;
