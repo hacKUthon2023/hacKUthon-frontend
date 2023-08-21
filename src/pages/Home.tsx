@@ -46,14 +46,17 @@ const Home = () => {
         start_station: start,
         end_station: end,
       });
-      // setData(data);
-      navigate("/subway-route", {
-        state: {
-          start: start,
-          end: end,
-          data: data,
-        },
-      });
+
+      data === "존재하지않는역"
+        ? navigate("/error")
+        : // setData(data);
+          navigate("/subway-route", {
+            state: {
+              start: start,
+              end: end,
+              data: data,
+            },
+          });
     } catch (err) {
       navigate("/error");
     }
