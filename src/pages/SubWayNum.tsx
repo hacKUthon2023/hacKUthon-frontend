@@ -3,6 +3,7 @@ import OtpInput from "react-otp-input";
 import { useState } from "react";
 import PageLayout from "../components/common/PageLayout";
 import { useLocation, useNavigate } from "react-router-dom";
+import Home from "./Home";
 
 // import client from "../lib/axios";
 
@@ -42,7 +43,7 @@ const SubWayNum = () => {
     }
   };
 
-  if (!start || !end) return navigate("/");
+  if (!start || !end) return <Home />;
 
   return (
     <PageLayout>

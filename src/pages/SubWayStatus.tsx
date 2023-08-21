@@ -7,6 +7,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import client from "../lib/axios";
 import { subwayNumResponseType } from "../type/dataType";
+import SubWayNum from "./SubWayNum";
+// import Home from "./Home";
 
 interface SEAT_DATAType {
   end_station: string;
@@ -34,8 +36,8 @@ const SubWayStatus = () => {
   // console.log("!!!", data);
   // console.log(SEAT_DATA?.map((seat) => seat.seat_num));
   // console.log(SEAT_DATA);
-  console.log(seatNum, seatEnd);
-  console.log(start, transfer, end);
+  // console.log(seatNum, seatEnd);
+  // console.log(start, transfer, end);
 
   useEffect(() => {
     // alert("자리에 앉으셨다면, 앉은 위치를 표시해주세요. 큰 도움이 될 거예요!");
@@ -159,8 +161,8 @@ const SubWayStatus = () => {
       });
   };
 
-  // if (!start || !end || !isTransfer || !transfer) return navigate("/");
-  if (!code) return navigate("/subway-num");
+  // if (!start || !end || !isTransfer || !transfer) return <Home />;
+  if (!code) return <SubWayNum />;
 
   return (
     fetchdata && (

@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import PageLayout from "../components/common/PageLayout";
 import { IcCongestion, IcRouteArrow } from "../assets/icon";
 import { useLocation, useNavigate } from "react-router-dom";
+import Home from "./Home";
 
 const SubWayRoute = () => {
   const location = useLocation();
@@ -24,35 +25,36 @@ const SubWayRoute = () => {
     }
   };
 
-  if (!start || !end || !data) return navigate("/");
-
+  if (!start || !end || !data) return <Home />;
   return (
-    <PageLayout>
-      <SubWayRouteWrapper>
-        <RouteInfoBoxContainer>
-          <RouteMsg>출발역의 혼잡도 정보를 함께 알려드릴게요.</RouteMsg>
-          <IcCongestion />
-          {data.start_line === 2 ? (
-            <TwoLineInfoBox>{start}</TwoLineInfoBox>
-          ) : (
-            <ThirdInfoBox>{start}</ThirdInfoBox>
-          )}
-          <IcRouteArrow />
-          <TransferInfoBox>
-            {data.transfer_station ? data.transfer_station : "환승없음"}
-          </TransferInfoBox>
-          <IcRouteArrow />
-          {data.end_line === 2 ? (
-            <TwoLineInfoBox>{end}</TwoLineInfoBox>
-          ) : (
-            <ThirdInfoBox>{end}</ThirdInfoBox>
-          )}
-        </RouteInfoBoxContainer>
-        <SubWayRouteBtn onClick={handleClickNextBtn}>
-          차량번호 입력하기
-        </SubWayRouteBtn>
-      </SubWayRouteWrapper>
-    </PageLayout>
+    <>
+      <PageLayout>
+        <SubWayRouteWrapper>
+          <RouteInfoBoxContainer>
+            <RouteMsg>출발역의 혼잡도 정보를 함께 알려드릴게요.</RouteMsg>
+            <IcCongestion />
+            {data.start_line === 2 ? (
+              <TwoLineInfoBox>{start}</TwoLineInfoBox>
+            ) : (
+              <ThirdInfoBox>{start}</ThirdInfoBox>
+            )}
+            <IcRouteArrow />
+            <TransferInfoBox>
+              {data.transfer_station ? data.transfer_station : "환승없음"}
+            </TransferInfoBox>
+            <IcRouteArrow />
+            {data.end_line === 2 ? (
+              <TwoLineInfoBox>{end}</TwoLineInfoBox>
+            ) : (
+              <ThirdInfoBox>{end}</ThirdInfoBox>
+            )}
+          </RouteInfoBoxContainer>
+          <SubWayRouteBtn onClick={handleClickNextBtn}>
+            차량번호 입력하기
+          </SubWayRouteBtn>
+        </SubWayRouteWrapper>
+      </PageLayout>
+    </>
   );
 };
 
