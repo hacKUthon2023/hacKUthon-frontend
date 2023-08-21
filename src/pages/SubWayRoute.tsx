@@ -25,7 +25,7 @@ const SubWayRoute = () => {
     }
   };
 
-  // console.log(start, "###");
+  console.log(start, "###");
 
   // if (!start || !end || !data) return <Home />;
   return (

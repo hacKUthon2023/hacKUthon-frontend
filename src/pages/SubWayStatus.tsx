@@ -144,7 +144,7 @@ const SubWayStatus = () => {
         subway_num: Number(code),
         start_station: start,
         seat_num: Number(selectedSeat),
-        end_station: transfered ? end : transfer,
+        end_station: end,
       });
       console.log(data);
     } catch (err) {

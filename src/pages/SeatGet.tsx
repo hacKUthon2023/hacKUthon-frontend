@@ -16,7 +16,7 @@ const SeatGet = () => {
   const end = location.state ? location.state.end : null;
   const transfered = location.state ? location.state.transfered : null;
 
-  // console.log(start, end, transfered, "@@@@@@");
+  console.log(start, end, transfered, "@@@@@@");
 
   if ((!start && !transfered) || !end) return <Home />;
 
