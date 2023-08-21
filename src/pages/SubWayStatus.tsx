@@ -323,6 +323,8 @@ const SubWayStatusWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-bottom: 6.8rem;
 `;
 
 const StatusInfoContainer = styled.article`

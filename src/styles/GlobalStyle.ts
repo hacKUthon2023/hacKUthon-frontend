@@ -144,7 +144,7 @@ export const GlobalStyle = createGlobalStyle`
 ${reset}
 #root, body, html {
     max-width: 37.5rem;
-    height: 100vh;
+    height: 100dvh;
     margin: 0 auto;
     overflow-y: auto;
     -ms-overflow-style: none; /* 인터넷 익스플로러 */
