@@ -89,6 +89,8 @@ const Home = () => {
 export default Home;
 
 const HomeWrapper = styled.section`
+  padding-top: 9.6rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;

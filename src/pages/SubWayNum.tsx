@@ -83,6 +83,8 @@ const SubWayNum = () => {
 export default SubWayNum;
 
 const SubwayNumWrapper = styled.section`
+  padding-top: 9.6rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;

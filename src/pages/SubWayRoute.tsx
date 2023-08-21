@@ -63,6 +63,8 @@ const SubWayRoute = () => {
 export default SubWayRoute;
 
 const SubWayRouteWrapper = styled.section`
+  padding-top: 9.6rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;

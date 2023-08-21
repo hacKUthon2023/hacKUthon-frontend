@@ -49,9 +49,13 @@ const SeatGet = () => {
 export default SeatGet;
 
 const SeatGetWrapper = styled.section`
+  padding-top: 9.6rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  padding-top: 9.6rem;
 `;
 
 const IconBox = styled.div`

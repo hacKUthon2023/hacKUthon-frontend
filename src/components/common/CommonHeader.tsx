@@ -34,11 +34,14 @@ const CommonHeader = ({
 export default CommonHeader;
 
 const CommonHeaderWrapper = styled.header`
+  position: absolute;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2.4rem;
 
+  width: 100%;
   height: 9.6rem;
 
   background-color: #fff;
