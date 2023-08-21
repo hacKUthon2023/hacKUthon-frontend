@@ -4,14 +4,13 @@ import { IcHomeMainIcon } from "../assets/icon";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import client from "../lib/axios";
+// import { onBoardingResponseType } from "../type/dataType";
 
 const Home = () => {
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
 
   const navigate = useNavigate();
-
-  console.log(start, end);
 
   const handleLimitSpace = (e: React.KeyboardEvent<HTMLInputElement>) => {
     //띄어쓰기 제한
@@ -39,23 +38,24 @@ const Home = () => {
   };
 
   const handleClickStartBtn = async () => {
-    if (start && end) {
-      try {
-        const response = await client.post("/onboarding", {
-          start_station: start,
-          end_station: end,
-        });
-        console.log("!!!", response);
-      } catch (err) {
-        console.log(err);
-      }
+    if (!start || !end) return;
+    console.log(start, end);
 
+    try {
+      const { data } = await client.post("/onboarding", {
+        start_station: start,
+        end_station: end,
+      });
+      // setData(data);
       navigate("/subway-route", {
         state: {
           start: start,
           end: end,
+          data: data,
         },
       });
+    } catch (err) {
+      navigate("/error");
     }
   };
 

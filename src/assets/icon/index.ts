@@ -5,3 +5,4 @@ export { ReactComponent as IcRefresh } from "./IcRefresh.svg";
 export { ReactComponent as IcEmptySeat } from "./IcEmptySeat.svg";
 export { ReactComponent as IcHomeMainIcon } from "./IcHomeMainIcon.svg";
 export { ReactComponent as IcSeatGet } from "./IcSeatGet.svg";
+export { ReactComponent as IcCongestion } from "./IcCongestion.svg";

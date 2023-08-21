@@ -3,7 +3,7 @@ import OtpInput from "react-otp-input";
 import { useState } from "react";
 import PageLayout from "../components/common/PageLayout";
 import { useLocation, useNavigate } from "react-router-dom";
-import Home from "./Home";
+
 // import client from "../lib/axios";
 
 const SubWayNum = () => {
@@ -16,30 +16,33 @@ const SubWayNum = () => {
 
   const start = location.state ? location.state.start : null;
   const end = location.state ? location.state.end : null;
+  const transfer = location.state ? location.state.transfer : null;
+  const transfered = location.state ? location.state.transfered : null;
+
+  if (!location.state) return;
+  const isTransfer = transfered ? false : location.state.isTransfer;
+
+  // useEffect(() => {
+  //   transfered && setIsTransfer(false);
+  //   location.state && setIsTransfer(location.state.isTransfer);
+  // }, []);
 
   const handleClickFindBtn = async () => {
     if (start && end && code) {
-      // try {
-      //   const response = await client.post("/subwayNum", {
-      //     subway_num: code,
-      //     start_station: start,
-      //   });
-      //   console.log("!!!", response);
-      // } catch (err) {
-      //   console.log(err);
-      // }
-
       navigate("/subway-status", {
         state: {
           start: start,
           end: end,
-          code,
+          code: code,
+          isTransfer: isTransfer,
+          transfer: transfer,
+          transfered: transfered,
         },
       });
     }
   };
 
-  if (!start && !end) return <Home />;
+  if (!start || !end) return navigate("/");
 
   return (
     <PageLayout>

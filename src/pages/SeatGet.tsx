@@ -1,21 +1,45 @@
 import { styled } from "styled-components";
 import PageLayout from "../components/common/PageLayout";
-import { IcSeatGet } from "../assets/icon";
-import { useNavigate } from "react-router-dom";
+
+import { useLocation, useNavigate } from "react-router-dom";
+import Home from "./Home";
+
+import GetImg from "../../src/assets/img/GetImg.png";
 
 const SeatGet = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isTransfer = location.state ? location.state.isTransfer : null;
+  const start = location.state ? location.state.start : null;
+  const end = location.state ? location.state.end : null;
+  const transfered = location.state ? location.state.transfered : null;
+
+  console.log(start, end, "@@@@@@");
+
+  if ((!start && !transfered) || !end) return <Home />;
 
   return (
     <PageLayout>
       <SeatGetWrapper>
         <IconBox>
-          <IcSeatGet />
+          <img src={GetImg} alt="정보-보상-이미지" />
         </IconBox>
-        <TransferBtn onClick={() => navigate("/seat-num")}>
-          환승하기
-        </TransferBtn>
-        <BackHomeBtn onClick={() => navigate("/")}>처음으로</BackHomeBtn>
+        {isTransfer && (
+          <TransferBtn
+            onClick={() =>
+              navigate("/subway-num", {
+                state: {
+                  start: start,
+                  end: end,
+                  transfered: true,
+                },
+              })
+            }
+          >
+            환승하기
+          </TransferBtn>
+        )}
       </SeatGetWrapper>
     </PageLayout>
   );
@@ -39,30 +63,13 @@ const TransferBtn = styled.button`
   align-items: center;
   width: 32.7rem;
   height: 4.8rem;
-  margin-bottom: 1.2rem;
+  margin-top: 14.1rem;
+  margin-bottom: 10rem;
 
   border-radius: 4.8rem;
 
   background-color: ${({ theme }) => theme.colors.primary_base};
   color: #fff;
-
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.6rem;
-`;
-
-const BackHomeBtn = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32.7rem;
-  height: 4.8rem;
-
-  color: ${({ theme }) => theme.colors.primary_base};
-
-  border: 0.1rem solid ${({ theme }) => theme.colors.primary_base};
-  border-radius: 4.8rem;
 
   font-size: 1.6rem;
   font-style: normal;

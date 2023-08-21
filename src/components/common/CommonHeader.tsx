@@ -21,7 +21,7 @@ const CommonHeader = ({
       ) : (
         <IcBacBtn onClick={() => (isError ? navigate("/") : navigate(-1))} />
       )}
-      <IcMainLogo />
+      <IcMainLogo onClick={() => navigate("/")} />
       {isRefresh ? (
         <IcRefresh onClick={() => window.location.reload()} />
       ) : (

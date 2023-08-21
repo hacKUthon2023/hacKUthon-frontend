@@ -1,8 +1,7 @@
 import { styled } from "styled-components";
 import PageLayout from "../components/common/PageLayout";
-import { IcRouteArrow } from "../assets/icon";
+import { IcCongestion, IcRouteArrow } from "../assets/icon";
 import { useLocation, useNavigate } from "react-router-dom";
-import Home from "./Home";
 
 const SubWayRoute = () => {
   const location = useLocation();
@@ -10,8 +9,7 @@ const SubWayRoute = () => {
 
   const start = location.state ? location.state.start : null;
   const end = location.state ? location.state.end : null;
-
-  console.log(start, end, "???");
+  const data = location.state ? location.state.data : null;
 
   const handleClickNextBtn = () => {
     if (start && end) {
@@ -19,22 +17,36 @@ const SubWayRoute = () => {
         state: {
           start: start,
           end: end,
+          isTransfer: data.transfer,
+          transfer: data.transfer_station,
         },
       });
     }
   };
 
-  if (!start || !end) return <Home />;
+  if (!start || !end || !data) return navigate("/");
 
   return (
     <PageLayout>
       <SubWayRouteWrapper>
         <RouteInfoBoxContainer>
-          <ThirdInfoBox>{start}</ThirdInfoBox>
+          <RouteMsg>출발역의 혼잡도 정보를 함께 알려드릴게요.</RouteMsg>
+          <IcCongestion />
+          {data.start_line === 2 ? (
+            <TwoLineInfoBox>{start}</TwoLineInfoBox>
+          ) : (
+            <ThirdInfoBox>{start}</ThirdInfoBox>
+          )}
           <IcRouteArrow />
-          <TransferInfoBox>을지로3가</TransferInfoBox>
+          <TransferInfoBox>
+            {data.transfer_station ? data.transfer_station : "환승없음"}
+          </TransferInfoBox>
           <IcRouteArrow />
-          <TwoLineInfoBox>{end}</TwoLineInfoBox>
+          {data.end_line === 2 ? (
+            <TwoLineInfoBox>{end}</TwoLineInfoBox>
+          ) : (
+            <ThirdInfoBox>{end}</ThirdInfoBox>
+          )}
         </RouteInfoBoxContainer>
         <SubWayRouteBtn onClick={handleClickNextBtn}>
           차량번호 입력하기
@@ -50,6 +62,15 @@ const SubWayRouteWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const RouteMsg = styled.p`
+  color: ${({ theme }) => theme.colors.primary_base};
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.4rem;
+  padding: 0.9rem;
 `;
 
 const RouteInfoBoxContainer = styled.article`
