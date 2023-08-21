@@ -10,12 +10,13 @@ const SeatGet = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const transfer = location.state ? location.state.transfer : null;
   const isTransfer = location.state ? location.state.isTransfer : null;
   const start = location.state ? location.state.start : null;
   const end = location.state ? location.state.end : null;
   const transfered = location.state ? location.state.transfered : null;
 
-  console.log(start, end, "@@@@@@");
+  // console.log(start, end, transfered, "@@@@@@");
 
   if ((!start && !transfered) || !end) return <Home />;
 
@@ -30,7 +31,7 @@ const SeatGet = () => {
             onClick={() =>
               navigate("/subway-num", {
                 state: {
-                  start: start,
+                  start: isTransfer ? transfer : start,
                   end: end,
                   transfered: true,
                 },

@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import PageLayout from "../components/common/PageLayout";
 import { IcCongestion, IcRouteArrow } from "../assets/icon";
 import { useLocation, useNavigate } from "react-router-dom";
-import Home from "./Home";
+// import Home from "./Home";
 
 const SubWayRoute = () => {
   const location = useLocation();
@@ -25,7 +25,9 @@ const SubWayRoute = () => {
     }
   };
 
-  if (!start || !end || !data) return <Home />;
+  // console.log(start, "###");
+
+  // if (!start || !end || !data) return <Home />;
   return (
     <>
       <PageLayout>

@@ -39,6 +39,8 @@ const SubWayStatus = () => {
   // console.log(seatNum, seatEnd);
   // console.log(start, transfer, end);
 
+  console.log(start, "###");
+
   useEffect(() => {
     // alert("자리에 앉으셨다면, 앉은 위치를 표시해주세요. 큰 도움이 될 거예요!");
 
@@ -154,9 +156,10 @@ const SubWayStatus = () => {
       navigate("/seat-get", {
         state: {
           isTransfer: isTransfer,
-          start: transfer,
+          start: start,
           end: end,
           transfered: transfered,
+          transfer: transfer,
         },
       });
   };
@@ -301,8 +304,6 @@ const SubWayStatus = () => {
                   </IconBox>
                 );
               })}
-              <SectionNum>1</SectionNum>
-              <SectionNum>1</SectionNum>
             </StatusSection>
           </StatusContainer>
           {isSeated && (
@@ -434,12 +435,23 @@ const EmptySeat = styled.div`
   background-color: ${({ theme }) => theme.colors.primary_base};
   color: white;
 
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.6rem;
+
   box-sizing: border-box;
 
   border-radius: 4.8rem;
   &.isClicked {
     border: 0.2rem solid #090a0a;
     box-sizing: border-box;
+    color: white;
+
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.6rem;
   }
 `;
 

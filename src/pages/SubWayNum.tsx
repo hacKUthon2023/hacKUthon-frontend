@@ -43,6 +43,7 @@ const SubWayNum = () => {
     }
   };
 
+  // console.log(start, "###");
   // if (!start || !end) return <Home />;
 
   return (
