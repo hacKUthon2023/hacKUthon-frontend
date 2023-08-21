@@ -142,6 +142,9 @@ export const reset = css`
 export const GlobalStyle = createGlobalStyle`
 
 ${reset}
+
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css");
+
 #root, body, html {
     max-width: 37.5rem;
     height: 100dvh;
@@ -155,6 +158,10 @@ ${reset}
 }
 
 * {
+  font-family: 'Pretendard Variable', system-ui, 'Helvetica Neue', 'Segoe UI',
+      'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji',
+      'Segoe UI Symbol', sans-serif;
+
     box-sizing: border-box;
     // 버튼 음영 제거
     -webkit-tap-highlight-color:rgba(255,255,255,0);
