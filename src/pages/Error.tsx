@@ -24,7 +24,7 @@ const ErrorPageWrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 18rem;
+  padding-top: 27.6rem;
 `;
 
 const ErrorDetail = styled.p`
@@ -55,7 +55,7 @@ const BackHomeBtn = styled.button`
   height: 4.8rem;
   justify-content: center;
   align-items: center;
-  margin-top: 1.2rem;
+  margin-top: 5.2rem;
 
   color: #fff;
   background-color: ${({ theme }) => theme.colors.primary_base};
